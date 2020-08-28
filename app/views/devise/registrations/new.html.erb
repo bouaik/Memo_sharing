@@ -8,6 +8,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.label :profile_image %>
+    <%= f.file_field :profile_image %>
+    <%= f.label :cover_image %>
+    <%= f.file_field :cover_image %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

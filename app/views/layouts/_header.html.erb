@@ -19,6 +19,7 @@
               <%= current_user.username %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Edt profile", edit_user_registration_path(current_user), class: "dropdown-item" %>
               <%= link_to "Sing out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
