@@ -10,7 +10,18 @@
       <% @memos.each do |memo| %>
         <div class="card my-2">
           <div class="card-body">
-            <%= memo.body %>
+            <div class="row">
+              <div class="col-2">
+                <% if memo.user.cover_image.attached? %>
+                  <%= image_tag memo.user.profile_image, class: "img-fluid rounded-circle" %>
+                <% else %>
+                  <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid rounded-circle"%>
+                <% end %>
+              </div>
+              <div class="col-10">
+                <%= memo.body %>
+              </div>
+            </div>
           </div>
           <div class="card-footer">
             <%= link_to 'Show', memo, class: "btn btn-sm btn-info" %>
