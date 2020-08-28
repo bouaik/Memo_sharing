@@ -7,7 +7,7 @@
             <% if current_user.profile_image.attached? %>
                 <%= image_tag current_user.profile_image, class: "img-fluid" %>
             <% else %>
-                <img src="https://via.placeholder.com/100x80" alt="" class="img-fluid">
+                <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
             <% end %>
         </div>
         <div class="col-8 align-self-center font-weight-bold">Lhoussaine Bouaik</div>
@@ -22,6 +22,6 @@
     </div>
     <ul class="list-group mt-4">
         <li class="list-group-item border-0 bg-info"><%= link_to "Home", root_path ,class: "text-white"%></li>
-        <li class="list-group-item border-0 bg-transparent"><%= link_to "Profile", root_path ,class: "text-white"%></li>
+        <li class="list-group-item border-0 bg-transparent"><%= link_to "Profile", current_user ,class: "text-white"%></li>
     </ul>
 </div>

@@ -18,7 +18,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.username %>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu left-position" aria-labelledby="navbarDropdown">
               <%= link_to "Edt profile", edit_user_registration_path(current_user), class: "dropdown-item" %>
               <%= link_to "Sing out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
