@@ -7,10 +7,21 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
-    <%= render "layouts/messages"%>
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "layouts/side_bar"%>
+        <div class="col-md-10">
+          <div class="row">
+            <%= render "layouts/header"%>
+          </div>
+          <%= render "layouts/messages" %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

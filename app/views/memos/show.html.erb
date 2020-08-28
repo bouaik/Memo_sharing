@@ -10,7 +10,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @memo.user_id %>
+  <%= @memo.user.username %>
 </p>
 
 <%= link_to 'Edit', edit_memo_path(@memo) %> |
