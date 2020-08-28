@@ -1,26 +1,23 @@
-<div class="col-md-2 heigh position-sticky text-light" style="
+<div class="col-md-2 heigh position-sticky text-light pt-4 p-0" style="
         top: 0;
         height: 100vh;
         background-color: #213346;">
-    <div class="row">
-        <div class="col-6">Lhoussaine</div>
-        <div class="col-6">
-            <img src="https://via.placeholder.com/100x70" alt="">
+    <div class="row mb-3 px-3">
+        <div class="col-4 p-0">
+            <img src="https://via.placeholder.com/100x70" alt="" class="img-fluid">
         </div>
+        <div class="col-8 align-self-center font-weight-bold">Lhoussaine Bouaik</div>
     </div>
-    <div class="row">
-        <div class="col-6 text-center">followers</div>
-        <div class="col-6 text-center">following</div>
+    <div class="row justify-content-between px-4">
+        <button type="button" class="btn btn-info">
+        followers <span class="badge badge-light"><%= current_user.followers.count %></span>
+        </button>
+        <button type="button" class="btn btn-info">
+        following <span class="badge badge-light"><%= current_user.following.count %></span>
+        </button>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item border-0 bg-transparent">Dapibus ac facilisis in</li>
-        <li class="list-group-item border-0 bg-transparent">A simple primary list group item</li>
-        <li class="list-group-item border-0 bg-transparent">A simple secondary list group item</li>
-        <li class="list-group-item border-0 bg-transparent">A simple success list group item</li>
-        <li class="list-group-item border-0 bg-transparent">A simple danger list group item</li>
-        <li class="list-group-item border-0 bg-transparent">A simple warning list group item</li>
-        <li class="list-group-item border-0 bg-transparent">A simple info list group item</li>
-        <li class="list-group-item border-0 bg-transparent">A simple light list group item</li>
-        <li class="list-group-item border-0 bg-transparent">A simple dark list group item</li>
+    <ul class="list-group mt-4">
+        <li class="list-group-item border-0 bg-info"><%= link_to "Home", root_path ,class: "text-white"%></li>
+        <li class="list-group-item border-0 bg-transparent"><%= link_to "Profile", root_path ,class: "text-white"%></li>
     </ul>
 </div>

@@ -21,7 +21,7 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-3 bg-warning">
+  <div class="col-md-3 bg-secondary">
      <h2 class="text-center font-weight-bold mt-4 py-1">To follow</h2>
     <div class="pt-1">
       <% User.where.not(id: current_user.id).each do |user| %>
