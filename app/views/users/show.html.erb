@@ -22,6 +22,11 @@
   </div>
   <div class="col-md-3 bg-secondary">
       <h5 class="text-center font-weight-bold mt-3"><%= @user.username %></h5>
+      <% if @user.cover_image.attached? %>
+        <%= image_tag @user.profile_image, class: "img-fluid" %>
+      <% else %>
+        <img src="https://via.placeholder.com/100x80" alt="" class="img-fluid">
+      <% end %>
       <div class="">
         <h6 class="text-center font-weight-bold mt-3">Followed by</h6>
         <% @user.followers.each do |user| %>

@@ -4,8 +4,8 @@
         background-color: #213346;">
     <div class="row mb-3 px-4">
         <div class="col-4 p-0">
-            <% if current_user.cover_image.attached? %>
-                <%= image_tag current_user.cover_image, class: "img-fluid" %>
+            <% if current_user.profile_image.attached? %>
+                <%= image_tag current_user.profile_image, class: "img-fluid" %>
             <% else %>
                 <img src="https://via.placeholder.com/100x80" alt="" class="img-fluid">
             <% end %>
