@@ -1,29 +1,27 @@
 <div class="row">
   <div class="col-md-9">
-     <h2 class="text-center text-primary font-weight-bold pt-4">Memos</h2>
-      <div class="">
-        <%= render 'form', memo: @memo %>
-      </div>
-      <div class="mt-3">
-        <% @memos.each do |memo| %>
-          <div class="card my-2">
-            <div class="card-header">
-              <h4 class="text-center"><%= memo.title %></h4>
-            </div>
-            <div class="card-body">
-              <%= memo.body %>
-            </div>
-            <div class="card-footer">
-              <%= link_to 'Show', memo, class: "btn btn-info" %>
-              <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-success" %>            
-              <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-            </div>
+  <div class="card mt-3 p-3">
+    <h4 class="text-primary">Make new tweet</h4>
+    <div class="">
+      <%= render 'form', memo: @memo %>
+    </div>
+  </div>
+    <div class="mt-3">
+      <% @memos.each do |memo| %>
+        <div class="card my-2">
+          <div class="card-body">
+            <%= memo.body %>
           </div>
-        <% end %>
-      </div>
+          <div class="card-footer">
+            <%= link_to 'Show', memo, class: "btn btn-info" %>
+            <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-success" %>            
+            <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-3 bg-warning">
 
   </div>
 </div>
-<%= link_to 'New Memo', new_memo_path %>
