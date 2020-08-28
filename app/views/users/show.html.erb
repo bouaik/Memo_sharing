@@ -25,8 +25,25 @@
       <% if @user.cover_image.attached? %>
         <%= image_tag @user.profile_image, class: "img-fluid" %>
       <% else %>
-        <img src="https://via.placeholder.com/100x80" alt="" class="img-fluid">
+        <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
       <% end %>
+      <div class="row ">
+        <div class="col-4">
+          <button type="button" class="btn btn-info">
+            Memos <br><span class="badge badge-light"><%= @user.memos.count %></span>
+          </button>
+        </div>
+        <div class="col-4">
+          <button type="button" class="btn btn-info">
+            Followers <span class="badge badge-light"><%= @user.followers.count %></span>
+          </button>
+        </div>
+        <div class="col-4">
+          <button type="button" class="btn btn-info">
+            Following <span class="badge badge-light"><%= @user.following.count %></span>
+          </button>
+        </div>
+      </div>
       <div class="">
         <h6 class="text-center font-weight-bold mt-3">Followed by</h6>
         <% @user.followers.each do |user| %>
