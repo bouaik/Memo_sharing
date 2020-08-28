@@ -10,7 +10,7 @@
                 <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
             <% end %>
         </div>
-        <div class="col-8 align-self-center font-weight-bold">Lhoussaine Bouaik</div>
+        <div class="col-8 align-self-center font-weight-bold"><%= current_user.username %></div>
     </div>
     <div class="row justify-content-between px-4">
         <button type="button" class="btn btn-info">

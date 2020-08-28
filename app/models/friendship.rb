@@ -5,7 +5,5 @@ class Friendship < ApplicationRecord
     validates :follower_id, presence: true
     validates :followed_id, presence: true
 
-    has_one_attached :profile_image
-    has_one_attached :cover_image
 
 end
