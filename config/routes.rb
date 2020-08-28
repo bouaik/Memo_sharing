@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show]
   resources :memos #, except: [:index]
   resource :friendships, only: [:create, :destroy]
 
