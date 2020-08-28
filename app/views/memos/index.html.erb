@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-9">
   <div class="card mt-3 p-3">
-    <h4 class="text-primary">Make new tweet</h4>
+    <h4 class="text-primary">Make new Memo</h4>
     <div class="">
       <%= render 'form', memo: @memo %>
     </div>
@@ -13,9 +13,9 @@
             <%= memo.body %>
           </div>
           <div class="card-footer">
-            <%= link_to 'Show', memo, class: "btn btn-info" %>
-            <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-success" %>            
-            <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <%= link_to 'Show', memo, class: "btn btn-sm btn-info" %>
+            <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-sm btn-success" %>            
+            <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
           </div>
         </div>
       <% end %>
