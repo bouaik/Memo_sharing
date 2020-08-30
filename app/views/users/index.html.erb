@@ -1,31 +1,4 @@
 <h3 class="text-center text-primary font-weight-bold py-3">All memo creators</h3>
 <div class="row justify-content-center">
-    <% @users.each do |user| %>
-      <div class="card my-3 w-75">
-        <div class="card-header">
-          <div class="row">
-            <div class='col-2'>
-            <% if user.profile_image.attached? %>
-                <%= image_tag user.profile_image, class: "img-fluid" %>
-            <% else %>
-                <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
-            <% end %>
-            </div>
-            <div class="col-10">
-                <%= link_to user.username, user %>
-                <%= follow_btn(user) %>
-            </div>
-          </div>
-      </div>
-      <div class="card-body">
-        <div class="row">
-        <button type="button" class="btn btn-info">
-        followers <span class="badge badge-light"><%= user.followers.count %></span>
-        </button>
-        <button type="button" class="btn btn-info ml-5">
-        following <span class="badge badge-light"><%= user.following.count %></span>
-        </div>
-        </div>
-    </div>
-    <% end %>
+    <%= all_users %>
 </div>
