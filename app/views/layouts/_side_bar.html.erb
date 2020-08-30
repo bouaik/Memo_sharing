@@ -23,5 +23,6 @@
     <ul class="list-group mt-4">
         <li class="list-group-item border-0 <%= current_page?(root_path) ? 'bg-info' : "bg-transparent"%>"><%= link_to "Home", root_path ,class: "text-white"%></li>
         <li class="list-group-item border-0 <%= current_page?(current_user) ? 'bg-info' : "bg-transparent"%>"><%= link_to "Profile", current_user ,class: "text-white"%></li>
+        <li class="list-group-item border-0 <%= current_page?(users_path) ? 'bg-info' : "bg-transparent"%>"><%= link_to "Memo creators", users_path ,class: "text-white"%></li>
     </ul>
 </div>
