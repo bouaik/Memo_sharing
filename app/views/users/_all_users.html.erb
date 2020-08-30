@@ -1,0 +1,38 @@
+<% @users.each do |user| %>
+      <div class="card my-3 w-75">
+        <div class="card-header">
+          <div class="row">
+            <div class='col-2'>
+            <% if user.profile_image.attached? %>
+                <%= image_tag user.profile_image, class: "img-fluid" %>
+            <% else %>
+                <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
+            <% end %>
+            </div>
+            <div class="col-10">
+                <%= link_to user.username, user %>
+                <% if !(current_user == user) %>
+                    <% if current_user.following?(user) %>
+                    <%= button_to  friendships_path(user_id: user.id), remote: true, method: :delete, class: "btn btn-danger" do %> 
+                        <i class="fas fa-user-times"></i>
+                    <% end %>
+                    <% else %>
+                    <%= button_to  friendships_path(user_id: user.id), remote: true, class: "btn btn-success" do %> 
+                        <i class="fas fa-user-plus"></i>
+                    <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+          </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+        <button type="button" class="btn btn-info">
+        followers <span class="badge badge-light"><%= user.followers.count %></span>
+        </button>
+        <button type="button" class="btn btn-info ml-5">
+        following <span class="badge badge-light"><%= user.following.count %></span>
+        </div>
+        </div>
+    </div>
+    <% end %>

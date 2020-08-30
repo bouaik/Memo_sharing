@@ -1,26 +1,22 @@
-<% @memos.each do |memo| %>
-        <div class="card my-2">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-2">
-                <% if memo.user.profile_image.attached? %>
-                  <%= image_tag memo.user.profile_image, class: "img-fluid rounded-circle" %>
-                <% else %>
-                  <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid rounded-circle"%>
-                <% end %>
-              </div>
-              <div class="col-10">
-                <h5 class="font-weight-bold"><%= memo.user.username %></h5 class="font-weight-bold">
-                <%= memo.body %>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <%= link_to 'Show', memo, class: "btn btn-sm btn-info" %>
-            <% if current_user == memo.user %>
-            <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-sm btn-success" %>            
-            <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
-            <% end %>
-          </div>
+<% object.each do |memo| %>
+  <div class="card my-2">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+          <%= profile_image(memo.user) %>
         </div>
+        <div class="col-10">
+          <h5 class="font-weight-bold"><%= memo.user.username %></h5>
+          <%= memo.body %>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Show', memo, class: "btn btn-sm btn-info" %>
+      <% if current_user == memo.user %>
+        <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-sm btn-success" %>            
+        <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
       <% end %>
+    </div>
+  </div>
+<% end %>

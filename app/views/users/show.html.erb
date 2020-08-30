@@ -9,43 +9,14 @@
     </div>
     <h3 class="text-center text-primary font-weight-bold py-3"><%= @user.username %>'s Memos</h3>
     <div class="mt-3 px-3">
-      <% @user.memos.each do |memo| %>
-        <div class="card my-2">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-2">
-                <% if memo.user.profile_image.attached? %>
-                  <%= image_tag memo.user.profile_image, class: "img-fluid rounded-circle" %>
-                <% else %>
-                  <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid rounded-circle"%>
-                <% end %>
-              </div>
-              <div class="col-10">
-                <h5 class="font-weight-bold"><%= memo.user.username %></h5 class="font-weight-bold">
-                <%= memo.body %>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <%= link_to 'Show', memo, class: "btn btn-sm btn-info" %>
-            <% if current_user == @user %>
-              <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-sm btn-success" %>            
-              <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
-            <%end %>
-          </div>
-        </div>
-      <% end %>
+      <%= all_memos(@user.memos) %>
     </div>
   </div>
   <div class="col-md-3 bg-light">
       <h5 class="text-center font-weight-bold mt-3"><%= @user.username %></h5>
       <div class="row">
         <div class="col-8">
-          <% if @user.profile_image.attached? %>
-            <%= image_tag @user.profile_image, class: "img-fluid" %>
-          <% else %>
-            <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
-          <% end %>
+          <%= profile_image(@user) %>
         </div>
         <div class="col-4 align-self-center">
           <% if !(current_user == @user) %>
