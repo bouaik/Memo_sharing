@@ -12,13 +12,13 @@
         </div>
         <div class="col-8 align-self-center font-weight-bold"><%= current_user.username %></div>
     </div>
-    <div class="row justify-content-between px-4">
-        <button type="button" class="btn btn-info">
-        followers <span class="badge badge-light"><%= current_user.followers.count %></span>
-        </button>
-        <button type="button" class="btn btn-info">
-        following <span class="badge badge-light"><%= current_user.following.count %></span>
-        </button>
+    <div class="row">
+        <div class="col-6 text-center text-light font-weight-bold">
+          Followers <%= current_user.followers.count %>
+        </div>
+        <div class="col-6 text-center text-light font-weight-bold">
+          Following <%= current_user.following.count %>
+        </div>
     </div>
     <ul class="list-group mt-4">
         <li class="list-group-item border-0 <%= current_page?(root_path) ? 'bg-info' : "bg-transparent"%>"><%= link_to "Home", root_path ,class: "text-white"%></li>
