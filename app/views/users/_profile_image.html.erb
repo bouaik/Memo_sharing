@@ -1,5 +1,5 @@
 <% if object.profile_image.attached? %>
-    <%= image_tag object.profile_image, class: "img-fluid" %>
+    <%= image_tag object.profile_image, class: "img-fluid #{clas}" %>
 <% else %>
-    <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
+    <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid #{clas}"%>
 <% end %>

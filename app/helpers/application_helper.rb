@@ -3,7 +3,7 @@ module ApplicationHelper
         render 'memos/all_memos', object: object
     end
 
-    def profile_image(object)
-        render 'users/profile_image', object: object
+    def profile_image(object, clas)
+        render 'users/profile_image', object: object, clas: clas
     end
 end

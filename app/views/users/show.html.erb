@@ -16,7 +16,7 @@
       <h5 class="text-center font-weight-bold mt-3"><%= @user.username %></h5>
       <div class="row">
         <div class="col-8">
-          <%= profile_image(@user) %>
+          <%= profile_image(@user, "") %>
         </div>
         <div class="col-4 align-self-center">
           <% if !(current_user == @user) %>
