@@ -6,4 +6,5 @@ class Friendship < ApplicationRecord
     validates :followed_id, presence: true
 
 
+
 end

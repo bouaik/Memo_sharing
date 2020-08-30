@@ -27,6 +27,7 @@ class MemosController < ApplicationController
   # POST /memos
   # POST /memos.json
   def create
+    @memos = Memo.all
     @memo = Memo.new(memo_params)
     @memo.user = current_user
 
@@ -35,7 +36,7 @@ class MemosController < ApplicationController
         format.html { redirect_to memos_path, notice: 'Memo was successfully created.' }
         format.json { render :show, status: :created, location: @memo }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @memo.errors, status: :unprocessable_entity }
       end
     end
