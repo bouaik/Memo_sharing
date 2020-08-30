@@ -26,15 +26,17 @@
           </div>
           <div class="card-footer">
             <%= link_to 'Show', memo, class: "btn btn-sm btn-info" %>
+            <% if current_user == memo.user %>
             <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-sm btn-success" %>            
             <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
   <div class="col-md-3 bg-secondary">
-     <h2 class="text-center font-weight-bold mt-4 py-1">To follow</h2>
+     <h5 class="text-center font-weight-bold mt-3">Who to follow</h5>
     <div class="pt-1">
       <% User.where.not(id: current_user.id).each do |user| %>
         <% if !current_user.following?(user) %>

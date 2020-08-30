@@ -1,6 +1,7 @@
 class MemosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
+  before_action :authorzie_user, only: [:edit, :destroy]
 
   # GET /memos
   # GET /memos.json
@@ -64,6 +65,12 @@ class MemosController < ApplicationController
     end
   end
 
+  def authorzie_user
+    if @memo.user != current_user
+      flash[:error] = 'unauthorized access!'
+      redirect_to root_path
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_memo

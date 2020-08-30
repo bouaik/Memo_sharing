@@ -4,11 +4,13 @@ class FriendshipsController < ApplicationController
 
     def create
         current_user.follow(@user)
+        flash[:notice] = 'Followed successfully'
         redirect_back(fallback_location: root_path)
     end
 
     def destroy
         current_user.unfollow(@user)
+        flash[:notice] = 'Unfollowed successfully'
         redirect_back(fallback_location: root_path)
     end
 

@@ -1,10 +1,12 @@
 <div class="row">
   <div class="col-md-9 padding-0">
-    <% if @user.cover_image.attached? %>
-      <%= image_tag @user.cover_image, class: "img-fluid" %>
-    <% else %>
-      <img src="https://via.placeholder.com/2000x500" alt="" class="img-fluid">
-    <% end %>
+    <div style='height: 500px; overflow: hidden'>
+      <% if @user.cover_image.attached? %>
+        <%= image_tag @user.cover_image, class: "img-fluid" %>
+      <% else %>
+        <img src="https://via.placeholder.com/2000x1000" alt="" class="img-fluid">
+      <% end %>
+    </div>
     <h3 class="text-center text-primary font-weight-bold py-3"><%= @user.username %>'s Memos</h3>
     <div class="mt-3 px-3">
       <% @user.memos.each do |memo| %>
@@ -26,8 +28,10 @@
           </div>
           <div class="card-footer">
             <%= link_to 'Show', memo, class: "btn btn-sm btn-info" %>
-            <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-sm btn-success" %>            
-            <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+            <% if current_user == @user %>
+              <%= link_to 'Edit', edit_memo_path(memo), class: "btn btn-sm btn-success" %>            
+              <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+            <%end %>
           </div>
         </div>
       <% end %>
