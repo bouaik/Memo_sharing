@@ -12,7 +12,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-2">
-                <% if memo.user.cover_image.attached? %>
+                <% if memo.user.profile_image.attached? %>
                   <%= image_tag memo.user.profile_image, class: "img-fluid rounded-circle" %>
                 <% else %>
                   <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid rounded-circle"%>
@@ -37,39 +37,35 @@
       <h5 class="text-center font-weight-bold mt-3"><%= @user.username %></h5>
       <div class="row">
         <div class="col-8">
-          <% if @user.cover_image.attached? %>
+          <% if @user.profile_image.attached? %>
             <%= image_tag @user.profile_image, class: "img-fluid" %>
           <% else %>
             <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid"%>
           <% end %>
         </div>
         <div class="col-4 align-self-center">
-          <% if current_user.following?(@user) %>
-            <%= button_to  friendships_path(user_id: @user.id), remote: true, method: :delete, class: "btn btn-danger" do %> 
-              <i class="fas fa-user-times"></i>
-            <% end %>
-          <% else %>
-            <%= button_to  friendships_path(user_id: @user.id), remote: true, class: "btn btn-success" do %> 
-              <i class="fas fa-user-plus"></i>
+          <% if !(current_user == @user) %>
+            <% if current_user.following?(@user) %>
+              <%= button_to  friendships_path(user_id: @user.id), remote: true, method: :delete, class: "btn btn-danger" do %> 
+                <i class="fas fa-user-times"></i>
+              <% end %>
+            <% else %>
+              <%= button_to  friendships_path(user_id: @user.id), remote: true, class: "btn btn-success" do %> 
+                <i class="fas fa-user-plus"></i>
+              <% end %>
             <% end %>
           <% end %>
         </div>
       </div>
-      <div class="row mt-3">
-        <div class="col-4">
-          <button type="button" class="btn btn-info">
-            Memos <br><span class="badge badge-light"><%= @user.memos.count %></span>
-          </button>
+      <div class="row mt-3 justify-content-center">
+        <div class="col-4 text-center border py-2 text-secondary font-weight-bold">
+          Memos <%= @user.memos.count %>
         </div>
-        <div class="col-4">
-          <button type="button" class="btn btn-info">
-            Followers <span class="badge badge-light"><%= @user.followers.count %></span>
-          </button>
+        <div class="col-4 text-center border py-2 text-secondary font-weight-bold">
+          Followers <%= @user.followers.count %>
         </div>
-        <div class="col-4">
-          <button type="button" class="btn btn-info">
-            Following <span class="badge badge-light"><%= @user.following.count %></span>
-          </button>
+        <div class="col-4 text-center border py-2 text-secondary font-weight-bold">
+          Following <%= @user.following.count %>
         </div>
       </div>
       <div class="">

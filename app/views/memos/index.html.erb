@@ -12,7 +12,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-2">
-                <% if memo.user.cover_image.attached? %>
+                <% if memo.user.profile_image.attached? %>
                   <%= image_tag memo.user.profile_image, class: "img-fluid rounded-circle" %>
                 <% else %>
                   <%= image_pack_tag 'profile_placeholder.jpg', class: "img-fluid rounded-circle"%>
