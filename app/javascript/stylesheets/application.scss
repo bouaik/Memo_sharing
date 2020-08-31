@@ -2,35 +2,36 @@
 @import '@fortawesome/fontawesome-free';
 
 .padding-0 {
-    padding: 0;
+  padding: 0;
 }
 
 .left-position {
-    left: -46px;
+  left: -46px;
 }
 
 .to-follow-img {
-    height: 90px;
-    width: 90px;
+  height: 90px;
+  width: 90px;
 }
-
 
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
-body{
+body {
   background: #fff;
   font-family: 'PT Sans', sans-serif;
 }
-h2{
+
+h2 {
   padding-top: 1.5rem;
 }
 
-.card-sign{
-  border: 0.40rem solid #f8f9fa;
+.card-sign {
+  border: 0.4rem solid #f8f9fa;
   position: relative;
   top: 10%;
 }
-.form-control{
+
+.form-control {
   background-color: #f8f9fa;
   padding: 20px;
   padding: 25px 15px;
@@ -38,21 +39,21 @@ h2{
 }
 
 .form-control:focus {
-    color: #000000;
-    background-color: #ffffff;
-    border: 3px solid #17a2b8;
-    outline: 0;
-    box-shadow: none;
+  color: #000;
+  background-color: #fff;
+  border: 3px solid #17a2b8;
+  outline: 0;
+  box-shadow: none;
 }
 
 .btn-sign {
-    padding: 0.6rem 1.2rem;
-    background: #17a2b8;
-    border: 2px solid #17a2b8;
+  padding: 0.6rem 1.2rem;
+  background: #17a2b8;
+  border: 2px solid #17a2b8;
 }
 
 .btn-sign:hover {
-    background-color: #00ddff;
-    border-color: #00ddff;
-    transition: .3s;
+  background-color: #0df;
+  border-color: #0df;
+  transition: 0.3s;
 }

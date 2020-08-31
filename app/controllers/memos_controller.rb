@@ -1,7 +1,7 @@
 class MemosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_memo, only: [:show, :edit, :update, :destroy]
-  before_action :authorzie_user, only: [:edit, :destroy]
+  before_action :set_memo, only: %i[show edit update destroy]
+  before_action :authorzie_user, only: %i[edit destroy]
 
   # GET /memos
   # GET /memos.json
@@ -13,8 +13,7 @@ class MemosController < ApplicationController
 
   # GET /memos/1
   # GET /memos/1.json
-  def show
-  end
+  def show; end
 
   # GET /memos/new
   def new
@@ -22,8 +21,7 @@ class MemosController < ApplicationController
   end
 
   # GET /memos/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /memos
   # POST /memos.json
@@ -68,19 +66,21 @@ class MemosController < ApplicationController
   end
 
   def authorzie_user
-    if @memo.user != current_user
-      flash[:error] = 'unauthorized access!'
-      redirect_to root_path
-    end
-  end
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_memo
-      @memo = Memo.find(params[:id])
-    end
+    return unless @memo.user != current_user
 
-    # Only allow a list of trusted parameters through.
-    def memo_params
-      params.require(:memo).permit(:title, :body)
-    end
+    flash[:error] = 'unauthorized access!'
+    redirect_to root_path
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_memo
+    @memo = Memo.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def memo_params
+    params.require(:memo).permit(:title, :body)
+  end
 end

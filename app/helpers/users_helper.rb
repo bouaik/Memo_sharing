@@ -1,6 +1,5 @@
 module UsersHelper
-    def all_users
-        render "all_users"
-    end
-
+  def all_users
+    render 'all_users'
+  end
 end
