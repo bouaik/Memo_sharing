@@ -27,7 +27,7 @@
             <li class="list-group-item border-0 <%= current_page?(users_path) ? 'bg-info' : "bg-transparent"%>"><%= link_to "Memo creators", users_path ,class: "text-white"%></li>
         </ul>
     <% else %>
-        <ul class="list-group">
+        <ul class="list-group mt-5">
             <li class="list-group-item border-0 <%= current_page?(new_user_registration_path) ? 'bg-info' : "bg-transparent"%>"><%= link_to "sing up", new_user_registration_path, class: "text-white" %></li>
             <li class="list-group-item border-0 <%= current_page?(new_user_session_path) ? 'bg-info' : "bg-transparent"%>"><%= link_to "log in", new_user_session_path, class: "text-white" %></li>
         </ul>
