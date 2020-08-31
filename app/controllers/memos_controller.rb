@@ -26,7 +26,8 @@ class MemosController < ApplicationController
   # POST /memos
   # POST /memos.json
   def create
-    @memos = Memo.all
+    @memos = Memo.all.includes(:user)
+    @other_users = User.where.not(id: current_user.id).with_attached_profile_image
     @memo = Memo.new(memo_params)
     @memo.user = current_user
 
