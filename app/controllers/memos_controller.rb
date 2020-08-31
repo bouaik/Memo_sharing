@@ -8,7 +8,7 @@ class MemosController < ApplicationController
   def index
     @memos = Memo.all.includes(:user)
     @memo = Memo.new
-    @other_users = User.where.not(id: current_user.id).with_attached_profile_image
+    @other_users = User.where.not(id: current_user.id)
   end
 
   # GET /memos/1
