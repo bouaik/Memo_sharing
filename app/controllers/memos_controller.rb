@@ -6,9 +6,9 @@ class MemosController < ApplicationController
   # GET /memos
   # GET /memos.json
   def index
-    @memos = Memo.all
+    @memos = Memo.all.includes(:user)
     @memo = Memo.new
-    @other_users = User.where.not(id: current_user.id)
+    @other_users = User.where.not(id: current_user.id).with_attached_profile_image
   end
 
   # GET /memos/1

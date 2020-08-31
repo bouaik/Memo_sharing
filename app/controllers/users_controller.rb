@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def index
-    @users = User.all
+    @users = User.all.with_attached_profile_image
   end
 
   def show; end
