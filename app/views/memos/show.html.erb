@@ -1,0 +1,12 @@
+
+<p>
+  <%= @memo.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @memo.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_memo_path(@memo) %> |
+<%= link_to 'Back', memos_path %>
