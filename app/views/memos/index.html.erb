@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-9">
+  <div class="card mt-3 p-3">
+    <h4 class="text-primary">Make new Memo</h4>
+    <div class="">
+      <%= render 'form', memo: @memo %>
+    </div>
+  </div>
+    <div class="mt-3">
+      <%= all_memos(@memos) %>
+    </div>
+  </div>
+  <div class="col-md-3 bg-secondary">
+     <h5 class="text-center font-weight-bold mt-3">Who to follow</h5>
+    <div class="pt-1">
+      <%= who_to_follow %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<% @users.each do |user| %>
+      <div class="card my-3 w-75">
+        <div class="card-header">
+          <div class="row">
+            <div class='col-2'>
+            <%= profile_image(user, "") %>
+            </div>
+            <div class="col-10">
+                <%= link_to user.username, user %>
+                <%= follow_btn(user) %>
+            </div>
+          </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+        <button type="button" class="btn btn-info">
+        followers <span class="badge badge-light"><%= user.followers.count %></span>
+        </button>
+        <button type="button" class="btn btn-info ml-5">
+        following <span class="badge badge-light"><%= user.following.count %></span>
+        </div>
+        </div>
+    </div>
+    <% end %>

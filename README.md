@@ -1,24 +1,88 @@
-# README
+# Memo Shatring
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This is a rails app that let you share you memories and follow all the world.
 
-Things you may want to cover:
+![alt text](https://i.imgur.com/Ms7Qf1R.png)
 
-* Ruby version
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby v2.7.1
+- Ruby on Rails v6.0.3.2
 
-* Database creation
+## live demo
+Click [here](https://ancient-falls-87375.herokuapp.com/)
 
-* Database initialization
+## Getting Started
 
-* How to run the test suite
+To get a local copy up and running follow these simple example steps.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Prerequisites
 
-* Deployment instructions
+Ruby: 2.7.1
+Rails: 6.0.3.2
+Postgres: >=9.5
 
-* ...
+### Setup
+
+Install gems with:
+
+```
+    bundle install
+```
+
+install dependencies
+```
+    yarn
+```
+
+Setup database with:
+
+```
+    rails db:create
+    rails db:migrate
+```
+
+
+
+### Usage
+
+Start server with:
+
+```
+    rails s
+```
+
+Open `http://localhost:3000/` in your browser.
+
+### Run tests
+
+```
+    bundle exec rspec
+```
+
+## Authors
+
+👤 **Lhoussaine Bouaik**
+- Github: [@bouaik](https://github.com/bouaik)
+- Twitter: [@bouaik](https://twitter.com/LhoussaineBoua1 )
+- Linkedin: [bouaik](https://www.linkedin.com/in/lhoussainebouaik/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+TBA
+
+## 📝 License
+
+TBA
+

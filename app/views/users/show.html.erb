@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-9 padding-0">
+    <div style='height: 500px; overflow: hidden'>
+      <% if @user.cover_image.attached? %>
+        <%= image_tag @user.cover_image, class: "img-fluid" %>
+      <% else %>
+        <img src="https://via.placeholder.com/2000x1000" alt="" class="img-fluid">
+      <% end %>
+    </div>
+    <h3 class="text-center text-primary font-weight-bold py-3"><%= @user.username %>'s Memos</h3>
+    <div class="mt-3 px-3">
+      <%= all_memos(@user.memos) %>
+    </div>
+  </div>
+  <div class="col-md-3 bg-light">
+      <h5 class="text-center font-weight-bold mt-3"><%= @user.username %></h5>
+      <div class="row">
+        <div class="col-8">
+          <%= profile_image(@user, "") %>
+        </div>
+        <div class="col-4 align-self-center">
+          <%= follow_btn(@user) %>
+        </div>
+      </div>
+      <div class="row mt-3 justify-content-center">
+        <div class="col-4 text-center border py-2 text-secondary font-weight-bold">
+          Memos <%= @user.memos.count %>
+        </div>
+        <div class="col-4 text-center border py-2 text-secondary font-weight-bold">
+          Followers <%= @user.followers.count %>
+        </div>
+        <div class="col-4 text-center border py-2 text-secondary font-weight-bold">
+          Following <%= @user.following.count %>
+        </div>
+      </div>
+      <div class="">
+        <h6 class="text-center font-weight-bold mt-3">Followed by</h6>
+        <% @user.followers.each do |user| %>
+        <div class="card my-2">
+          <div class="card-header">
+            <h4 class="text-center d-flex justify-content-between">
+              <%= link_to  user.username, user %>
+              <%= follow_btn(user) %>
+            </h4>
+          </div>
+        </div>
+      <% end %>
+      </div>
+  </div>
+</div>
